@@ -3,6 +3,11 @@ name = "rogue"
 version = "0.1.0"
 edition = "2024"
 
+[features]
+default = ["render"]
+atlas = []
+render = []
+
 [dependencies]
 bevy = { version = "0.16.1", features = ["wayland"] }
 bevy_ecs_tilemap = "0.16.0"
