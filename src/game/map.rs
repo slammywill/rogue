@@ -10,7 +10,7 @@ impl Plugin for MapPlugin {
 }
 
 fn initialize_map(mut commands: Commands, asset_server: Res<AssetServer>) {
-    let texture_handle: Handle<Image> = asset_server.load("textures/stone_tile.png");
+    let texture_handle: Handle<Image> = asset_server.load("textures/grass.png");
 
     let map_size = TilemapSize { x: 32, y: 32 };
 
@@ -33,9 +33,9 @@ fn initialize_map(mut commands: Commands, asset_server: Res<AssetServer>) {
         }
     }
 
-    let tile_size = TilemapTileSize { x: 128.0, y: 128.0 };
+    let tile_size = TilemapTileSize { x: 128.0, y: 64.0 };
     let grid_size = tile_size.into();
-    let map_type = TilemapType::Square;
+    let map_type = TilemapType::Isometric(IsoCoordSystem::Diamond);
 
     commands.entity(tilemap_entity).insert(TilemapBundle {
         grid_size,
