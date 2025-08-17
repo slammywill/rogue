@@ -5,13 +5,15 @@ use rogue::game::GamePlugin;
 fn main() {
     App::new()
         .add_plugins((
-            DefaultPlugins.set(WindowPlugin {
-                primary_window: Some(Window {
-                    title: String::from("Rogue"),
-                    ..Default::default()
-                }),
-                ..default()
-            }),
+            DefaultPlugins
+                .set(WindowPlugin {
+                    primary_window: Some(Window {
+                        title: String::from("Rogue"),
+                        ..Default::default()
+                    }),
+                    ..default()
+                })
+                .set(ImagePlugin::default_nearest()),
             TilemapPlugin,
             GamePlugin,
         ))

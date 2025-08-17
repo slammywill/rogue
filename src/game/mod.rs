@@ -11,6 +11,7 @@ impl Plugin for GamePlugin {
         app.add_plugins((
             camera::CameraPlugin,
             map::MapPlugin,
-        ));
+        ))
+            .add_systems(Startup, gameplay::character::spawn_player);
     }
 }
