@@ -36,7 +36,7 @@ fn zoom_control_system(
             }
             MouseScrollUnit::Pixel => {
                 // Pixel is for smooth scroll e.g. trackpad
-                ortho.scale += 0.2 * ev.y;
+                ortho.scale += 0.005 * ev.y;
             }
         }
     }
