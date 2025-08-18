@@ -12,7 +12,7 @@ impl Plugin for MapPlugin {
 fn initialize_map(mut commands: Commands, asset_server: Res<AssetServer>) {
     let texture_handle: Handle<Image> = asset_server.load("textures/tiles/cobblestone.png");
 
-    let map_size = TilemapSize { x: 32, y: 32 };
+    let map_size = TilemapSize { x: 16, y: 16 };
 
     let tilemap_entity = commands.spawn_empty().id();
 
