@@ -30,7 +30,7 @@ pub fn update_cursor_pos(
     }
 }
 
-pub fn highlight_tile(
+pub fn add_highlight_label(
     mut commands: Commands,
     cursor_pos: Res<CursorPos>,
     tilemap_query: Query<(

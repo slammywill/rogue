@@ -10,7 +10,11 @@ impl Plugin for MapPlugin {
 }
 
 fn initialize_map(mut commands: Commands, asset_server: Res<AssetServer>) {
-let texture_handle: Handle<Image> = asset_server.load("textures/tiles/grass.png");
+    let texture_handles = vec![
+        asset_server.load("textures/tiles/grass.png"),
+        asset_server.load("textures/tiles/grass_hl.png"),
+    ];
+    let texture_vec = TilemapTexture::Vector(texture_handles);
 
     let map_size = TilemapSize { x: 16, y: 16 };
 
@@ -26,6 +30,7 @@ let texture_handle: Handle<Image> = asset_server.load("textures/tiles/grass.png"
                 .spawn(TileBundle {
                     position: tile_pos,
                     tilemap_id: TilemapId(tilemap_entity),
+                    texture_index: TileTextureIndex(0),
                     ..Default::default()
                 })
                 .id();
@@ -42,7 +47,7 @@ let texture_handle: Handle<Image> = asset_server.load("textures/tiles/grass.png"
         map_type,
         size: map_size,
         storage: tile_storage,
-        texture: TilemapTexture::Single(texture_handle),
+        texture: texture_vec,
         tile_size,
         anchor: TilemapAnchor::Center,
         ..Default::default()
